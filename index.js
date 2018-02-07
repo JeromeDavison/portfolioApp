@@ -2,7 +2,8 @@ let express = require('express');
 let body = require('body-parser');
 let app = express();
  var path = require('path')
-
+var port = process.env.PORT || 8080;
+app.set('port', (process.env.PORT || 8080));
 app.use(body.urlencoded({extended: true}));
 var mongoose = require('mongoose');
 mongoose.connect('mongodb://jay:imaboss13@ds123658.mlab.com:23658/forumdb');
@@ -51,7 +52,6 @@ app.route('/submit')
 
 
 
-app.listen(3000, function (req, res){
+app.listen(port, function (req, res){
 	
-	console.log('listening sir!');
 })
